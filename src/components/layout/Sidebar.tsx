@@ -1,13 +1,20 @@
 
 
+import {
+NavLink
+} from "react-router-dom";
+
+
 const menus=[
 
-"Dashboard",
-"Groups",
-"Expenses",
-"Settlement",
-"Users",
-"Settings"
+["Dashboard","/dashboard"],
+["Groups","/groups"],
+["Expenses","/expenses"],
+["Settlement","/settlement"],
+["Analytics","/analytics"],
+["Users","/users"],
+["Admin","/admin"],
+["Settings","/settings"]
 
 ];
 
@@ -17,61 +24,102 @@ export default function Sidebar(){
 
 return (
 
-<div
+<aside
 
 style={{
 
 width:"260px",
+
 minHeight:"100vh",
-background:"#0f172a",
-color:"white",
-padding:"25px"
+
+background:"#000",
+
+color:"#ffc100",
+
+padding:"30px",
+
+flexShrink:0
 
 }}
 
 >
 
 
-<h2>
-Allo Split
+<h2
+
+style={{
+
+fontWeight:800
+
+}}
+
+>
+
+Allo
+
 </h2>
 
 
 <p>
-Bank Expense Platform
+
+Split Bill
+
 </p>
+
 
 
 <hr/>
 
 
+
 {
 menus.map(
-item=>
+menu=>(
 
-<div
 
-key={item}
+<NavLink
 
-style={{
+key={menu[1]}
 
-padding:"12px 0",
-opacity:.9
+to={menu[1]}
 
-}}
+style={({isActive})=>({
+
+display:"block",
+
+padding:"12px 15px",
+
+margin:"8px 0",
+
+borderRadius:"12px",
+
+color:"#fff",
+
+textDecoration:"none",
+
+background:isActive
+?"#ffc100"
+:"#111",
+
+})}
 
 >
 
-{item}
+{menu[0]}
 
-</div>
+
+</NavLink>
+
+
+)
 
 )
 
 }
 
 
-</div>
+
+</aside>
 
 )
 

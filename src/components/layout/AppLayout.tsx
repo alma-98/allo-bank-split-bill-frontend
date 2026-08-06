@@ -1,6 +1,5 @@
 
 import Sidebar from "./Sidebar";
-
 import Header from "./Header";
 
 
@@ -18,7 +17,11 @@ return (
 
 style={{
 
-display:"flex"
+display:"flex",
+
+minHeight:"100vh",
+
+background:"#f8fafc"
 
 }}
 
@@ -32,7 +35,11 @@ display:"flex"
 
 style={{
 
-flex:1
+flex:1,
+
+display:"flex",
+
+flexDirection:"column"
 
 }}
 
@@ -42,7 +49,17 @@ flex:1
 <Header/>
 
 
-<main>
+<main
+
+style={{
+
+flex:1,
+
+padding:"30px"
+
+}}
+
+>
 
 {children}
 

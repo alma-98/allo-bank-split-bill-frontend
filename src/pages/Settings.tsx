@@ -1,4 +1,4 @@
-export default function Settlement(){
+export default function Settings(){
 
 return (
 
@@ -7,7 +7,7 @@ return (
 
 <h1>
 
-Settlement
+Settings
 
 </h1>
 
@@ -16,7 +16,7 @@ Settlement
 
 <p>
 
-Settlement management module ready.
+Settings management module ready.
 
 </p>
 

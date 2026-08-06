@@ -1,4 +1,3 @@
-
 import {
 useState
 } from "react";
@@ -9,12 +8,16 @@ login
 } from "../auth/AuthService";
 
 
+import "../styles/login.css";
+
+
 export default function Login(){
 
 
 const [email,setEmail]=useState("");
 
 const [password,setPassword]=useState("");
+
 
 
 async function submit(){
@@ -28,7 +31,7 @@ password
 });
 
 
-window.location.href="/";
+window.location.href="/dashboard";
 
 
 }
@@ -37,87 +40,49 @@ window.location.href="/";
 
 return (
 
-<div
-
-style={{
-
-minHeight:"100vh",
-
-display:"flex",
-
-alignItems:"center",
-
-justifyContent:"center",
-
-background:
-"linear-gradient(135deg,#0f172a,#2563eb)"
-
-}}
-
->
+<div className="login-page">
 
 
-<div
-
-style={{
-
-width:"420px",
-
-background:"white",
-
-borderRadius:"24px",
-
-padding:"40px",
-
-boxShadow:
-"0 20px 50px rgba(0,0,0,.25)"
-
-}}
-
->
+<div className="login-brand">
 
 
-<h1
+<h1>
 
-style={{
+<span>
+Allo
+</span>
 
-marginBottom:"5px"
+<br/>
 
-}}
-
->
-
-Allo Bank
+Split Bill
 
 </h1>
 
 
-<h2>
+<p>
 
-Split Bill Platform
+Manage expenses smarter.
+<br/>
 
-</h2>
-
-
-<p
-
-style={{
-
-color:"#64748b"
-
-}}
-
->
-
-Manage shared expenses easily and securely.
+Simplify payments.
 
 </p>
 
 
+</div>
+
+
+
+<div className="login-card">
+
+
+<h2>
+Login
+</h2>
+
+
 
 <input
-
-style={inputStyle}
 
 placeholder="Email"
 
@@ -132,8 +97,6 @@ e=>setEmail(e.target.value)
 
 
 <input
-
-style={inputStyle}
 
 placeholder="Password"
 
@@ -150,103 +113,36 @@ e=>setPassword(e.target.value)
 
 
 <button
-
-style={{
-
-width:"100%",
-
-padding:"14px",
-
-background:"#2563eb",
-
-color:"white",
-
-border:0,
-
-borderRadius:"12px",
-
-fontSize:"16px",
-
-fontWeight:700
-
-}}
-
 onClick={submit}
-
 >
 
-Login
+LOGIN
 
 </button>
 
 
 
 
-<div
-
-style={{
-
-marginTop:"25px",
-
-padding:"18px",
-
-borderRadius:"14px",
-
-background:"#f1f5f9"
-
-}}
-
->
+<div className="demo-box">
 
 
-<b>
-
+<h3>
 Demo Account
-
-</b>
+</h3>
 
 
 <p>
 
-Email:
-
-<br/>
-
-<strong>
 admin@system.com
-</strong>
 
 </p>
 
 
 <p>
 
-Password:
-
-<br/>
-
-<strong>
 Admin@12345
-</strong>
 
 </p>
-
-
-<span
-
-style={{
-
-color:"#16a34a",
-
-fontWeight:700
-
-}}
-
->
-
-ADMIN ACCESS
-
-</span>
 
 
 </div>
@@ -261,24 +157,3 @@ ADMIN ACCESS
 )
 
 }
-
-
-
-const inputStyle={
-
-width:"100%",
-
-padding:"14px",
-
-margin:"10px 0",
-
-borderRadius:"12px",
-
-border:
-"1px solid #cbd5e1",
-
-fontSize:"15px"
-
-};
-
-

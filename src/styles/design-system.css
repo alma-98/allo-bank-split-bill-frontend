@@ -1,33 +1,24 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
 :root {
 
---primary:#2563eb;
---primary-dark:#1d4ed8;
+--allo-yellow:#ffc100;
 
---background:#f8fafc;
---surface:#ffffff;
+--black:#000000;
 
---text:#0f172a;
---muted:#64748b;
+--white:#ffffff;
 
---success:#16a34a;
---warning:#f59e0b;
---danger:#dc2626;
+--gray:#333333;
 
+--background:#ffc100;
 
---sidebar:#0f172a;
-
---radius:16px;
-
-
---shadow:
-0 10px 30px rgba(15,23,42,.08);
+--card:#ffffff;
 
 
 font-family:
-Inter,
-system-ui,
-Arial,
+'Poppins',
 sans-serif;
 
 }
@@ -45,37 +36,60 @@ body{
 margin:0;
 
 background:
-var(--background);
+var(--allo-yellow);
 
 color:
-var(--text);
+var(--black);
+
+font-family:
+'Poppins',
+sans-serif;
 
 }
 
+
+h1,h2,h3,h4{
+
+font-family:
+'Poppins',
+sans-serif;
+
+font-weight:700;
+
+}
 
 
 .card{
 
-background:
-var(--surface);
+background:white;
 
-border-radius:
-var(--radius);
+border-radius:20px;
+
+padding:24px;
+
+color:black;
 
 box-shadow:
-var(--shadow);
-
-padding:
-24px;
+0 10px 30px rgba(0,0,0,.15);
 
 }
 
 
+button{
 
-.container{
+font-family:
+'Poppins',
+sans-serif;
 
-padding:
-32px;
+background:black;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-weight:600;
 
 }
 

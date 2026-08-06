@@ -1,4 +1,4 @@
-export default function Settlement(){
+export default function Admin(){
 
 return (
 
@@ -7,7 +7,7 @@ return (
 
 <h1>
 
-Settlement
+Admin
 
 </h1>
 
@@ -16,7 +16,7 @@ Settlement
 
 <p>
 
-Settlement management module ready.
+Admin management module ready.
 
 </p>
 

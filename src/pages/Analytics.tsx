@@ -1,4 +1,4 @@
-export default function Settlement(){
+export default function Analytics(){
 
 return (
 
@@ -7,7 +7,7 @@ return (
 
 <h1>
 
-Settlement
+Analytics
 
 </h1>
 
@@ -16,7 +16,7 @@ Settlement
 
 <p>
 
-Settlement management module ready.
+Analytics management module ready.
 
 </p>
 
