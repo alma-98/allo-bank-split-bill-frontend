@@ -1,46 +1,62 @@
 import {
-Receipt,
-Users,
-Wallet
-} from "lucide-react";
+useState
+} from "react";
+
+
+import StatCard from "../components/dashboard/StatCard";
+
+import ExpenseList from "../components/dashboard/ExpenseList";
 
 
 export default function Dashboard(){
+
+
+const [expenses] =
+useState([]);
+
+
 
 return (
 
 <div>
 
+
 <h1>
-Dashboard
+Allo Bank Split Bill Dashboard
 </h1>
 
 
+
 <div>
 
-<Receipt/>
+<StatCard
+title="Groups"
+value="0"
+/>
 
-Groups
+
+<StatCard
+title="Expenses"
+value={
+String(expenses.length)
+}
+/>
+
+
+<StatCard
+title="Settlements"
+value="0"
+/>
+
 
 </div>
 
 
-<div>
 
-<Users/>
+<ExpenseList
+expenses={expenses}
+/>
 
-Participants
-
-</div>
-
-
-<div>
-
-<Wallet/>
-
-Expenses
-
-</div>
 
 
 </div>
