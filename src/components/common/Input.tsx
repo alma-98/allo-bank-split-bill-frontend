@@ -1,3 +1,4 @@
+import { useId } from "react";
 import "./Input.css";
 
 interface InputProps
@@ -15,13 +16,16 @@ export default function Input({
   className = "",
   ...props
 }: InputProps) {
-  const inputId =
-    id || `input-${Math.random().toString(36).slice(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id ?? generatedId;
 
   return (
     <div className="input-group">
       {label && (
-        <label htmlFor={inputId} className="input-label">
+        <label
+          htmlFor={inputId}
+          className="input-label"
+        >
           {label}
         </label>
       )}
