@@ -10,6 +10,7 @@ import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 
 import GroupDetail from "../pages/GroupDetail";
+import Settlement from "../pages/Settlement";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -50,7 +51,19 @@ element={
 />
 
 
+
+<Route
+path="/groups/:id/settlements"
+element={
+<ProtectedRoute>
+<Settlement/>
+</ProtectedRoute>
+}
+/>
+
+
 </Routes>
+
 
 </BrowserRouter>
 
