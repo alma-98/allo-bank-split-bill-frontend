@@ -6,7 +6,11 @@ Route
 
 
 import Dashboard from "../pages/Dashboard";
+
 import Login from "../pages/Login";
+
+import GroupDetail from "../pages/GroupDetail";
+
 import ProtectedRoute from "./ProtectedRoute";
 
 
@@ -31,6 +35,16 @@ path="/"
 element={
 <ProtectedRoute>
 <Dashboard/>
+</ProtectedRoute>
+}
+/>
+
+
+<Route
+path="/groups/:id"
+element={
+<ProtectedRoute>
+<GroupDetail/>
 </ProtectedRoute>
 }
 />

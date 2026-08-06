@@ -2,9 +2,25 @@ import client from "../api/client";
 
 import type {
 Group,
-Expense,
-Settlement
+Participant,
+CreateGroupRequest
 } from "../types/group";
+
+
+export async function createGroup(
+data:CreateGroupRequest
+){
+
+const response =
+await client.post<Group>(
+"/groups",
+data
+);
+
+return response.data;
+
+}
+
 
 
 export async function getGroup(
@@ -16,40 +32,22 @@ await client.get<Group>(
 `/groups/${groupId}`
 );
 
-
 return response.data;
 
 }
 
 
 
-export async function getSettlements(
-groupId:string
-){
-
-const response =
-await client.get<Settlement[]>(
-`/groups/${groupId}/settlements`
-);
-
-
-return response.data;
-
-}
-
-
-
-export async function createExpense(
+export async function addParticipant(
 groupId:string,
-data:Expense
+data:Participant
 ){
 
 const response =
 await client.post(
-`/groups/${groupId}/expenses`,
+`/groups/${groupId}/participants`,
 data
 );
-
 
 return response.data;
 
