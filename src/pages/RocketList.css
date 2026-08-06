@@ -116,3 +116,35 @@
 }
 
 }
+
+.rocket-summary{
+    margin:24px 0;
+    font-size:18px;
+    font-weight:600;
+}
+
+.rocket-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:24px;
+}
+
+.rocket-item{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:20px;
+}
+
+.rocket-item h2{
+    margin-bottom:12px;
+}
+
+.rocket-item p{
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.rocket-item small{
+    color:#64748b;
+}

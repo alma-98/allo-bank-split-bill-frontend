@@ -1,94 +1,52 @@
-import { useMemo, useState } from "react";
-
-import useRockets from "../hooks/useRockets";
-
-import {
-  SearchBar,
-  Loading,
-  ErrorState,
-} from "../components/common";
-
-import {
-  RocketGrid,
-} from "../components/rocket";
-
+import { rockets } from "../data";
 import "./RocketList.css";
 
 export default function RocketList() {
-
-  const [search, setSearch] = useState("");
-
-  const {
-    rockets,
-    loading,
-    error,
-    refetch,
-  } = useRockets();
-
-  const filteredRockets = useMemo(() => {
-    const keyword = search.trim().toLowerCase();
-
-    if (!keyword) {
-      return rockets;
-    }
-
-    return rockets.filter((rocket) =>
-      rocket.name.toLowerCase().includes(keyword)
-    );
-  }, [rockets, search]);
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return (
-      <ErrorState
-        message={error}
-        onRetry={() => {
-          void refetch();
-        }}
-      />
-    );
-  }
-
   return (
     <section className="rocket-list-page">
-
       <div className="rocket-hero">
-
         <div className="rocket-hero-content">
-
           <span className="rocket-badge">
-            🚀 SpaceX Explorer
+            🚀 SpaceX Rocket Explorer
           </span>
 
           <h1 className="rocket-title">
-            Discover SpaceX Rockets
+            SpaceX Rocket Explorer
           </h1>
 
           <p className="rocket-subtitle">
-            Browse every SpaceX rocket and explore technical specifications.
+            Browse all available SpaceX rockets using
+            local mock data.
           </p>
-
         </div>
-
       </div>
 
       <div className="rocket-list-container">
 
-        <SearchBar
-          value={search}
-          onChange={setSearch}
-          placeholder="Search rockets..."
-        />
+        <div className="rocket-summary">
+          <strong>Total Rockets :</strong> {rockets.length}
+        </div>
 
-        <RocketGrid
-          rockets={filteredRockets}
-        />
+        <div className="rocket-list">
+
+          {rockets.map((rocket) => (
+            <article
+              key={rocket.id}
+              className="rocket-item"
+            >
+              <h2>{rocket.name}</h2>
+
+              <p>{rocket.description}</p>
+
+              <small>
+                {rocket.country}
+              </small>
+            </article>
+          ))}
+
+        </div>
 
       </div>
-
     </section>
   );
 }
