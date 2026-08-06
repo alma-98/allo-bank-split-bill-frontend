@@ -6,7 +6,10 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-container">
 
-        <Link to="/" className="navbar-logo">
+        <Link
+          to="/"
+          className="navbar-logo"
+        >
           🚀 SpaceX Rocket Explorer
         </Link>
 

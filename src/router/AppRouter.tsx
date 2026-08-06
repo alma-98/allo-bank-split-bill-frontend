@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
 
+import Home from "../pages/Home";
 import RocketList from "../pages/RocketList";
 import RocketDetail from "../pages/RocketDetail";
 import NotFound from "../pages/NotFound";
@@ -10,8 +11,14 @@ export default function AppRouter() {
   return (
     <Routes>
       <Route element={<Layout />}>
+
         <Route
           path="/"
+          element={<Home />}
+        />
+
+        <Route
+          path="/rockets"
           element={<RocketList />}
         />
 
@@ -19,6 +26,7 @@ export default function AppRouter() {
           path="/rockets/:id"
           element={<RocketDetail />}
         />
+
       </Route>
 
       <Route
