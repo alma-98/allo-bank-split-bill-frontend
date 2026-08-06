@@ -1,45 +1,124 @@
-import { useEffect, useState } from "react";
+import {useEffect,useState} from "react";
+
 import RocketCard from "../components/rocket/RocketCard";
-import { getRockets } from "../services/RocketService";
+import SearchBar from "../components/common/SearchBar";
+import Loading from "../components/common/Loading";
+import Error from "../components/common/Error";
 
-export default function RocketList() {
+import {getRockets} from "../services/RocketService";
 
-  const [rockets,setRockets]=useState([]);
-  const [loading,setLoading]=useState(true);
+export default function RocketList(){
 
-  useEffect(()=>{
+const [rockets,setRockets]=useState([]);
+const [search,setSearch]=useState("");
 
-      getRockets()
-      .then(res=>setRockets(res.data))
-      .finally(()=>setLoading(false));
+const [loading,setLoading]=useState(true);
+const [error,setError]=useState("");
 
-  },[]);
+useEffect(()=>{
 
-  if(loading){
-      return <h2 className="p-8">Loading...</h2>;
-  }
+getRockets()
 
-  return(
+.then(res=>{
 
-    <div className="max-w-7xl mx-auto p-8">
+setRockets(res.data);
 
-        <h1 className="text-4xl font-bold mb-8">
-            🚀 SpaceX Rocket Explorer
-        </h1>
+})
 
-        <div className="grid md:grid-cols-3 gap-6">
+.catch(()=>{
 
-            {rockets.map((rocket:any)=>(
-                <RocketCard
-                    key={rocket.id}
-                    rocket={rocket}
-                />
-            ))}
+setError("Failed to load SpaceX API");
 
-        </div>
+})
 
-    </div>
+.finally(()=>{
 
-  );
+setLoading(false);
+
+});
+
+},[]);
+
+if(loading){
+
+return <Loading/>;
+
+}
+
+if(error){
+
+return <Error message={error}/>;
+
+}
+
+const filtered=rockets.filter((rocket:any)=>
+
+rocket.name.toLowerCase().includes(search.toLowerCase())
+
+);
+
+return(
+
+<div className="max-w-7xl mx-auto p-8">
+
+<h1 className="text-4xl font-bold mb-6">
+
+🚀 SpaceX Rocket Explorer
+
+</h1>
+
+<SearchBar
+
+value={search}
+
+onChange={setSearch}
+
+/>
+
+{
+
+filtered.length===0?
+
+(
+
+<div className="text-center py-20">
+
+Rocket Not Found
+
+</div>
+
+)
+
+:
+
+(
+
+<div className="grid md:grid-cols-3 gap-6">
+
+{
+
+filtered.map((rocket:any)=>
+
+<RocketCard
+
+key={rocket.id}
+
+rocket={rocket}
+
+/>
+
+)
+
+}
+
+</div>
+
+)
+
+}
+
+</div>
+
+);
 
 }
