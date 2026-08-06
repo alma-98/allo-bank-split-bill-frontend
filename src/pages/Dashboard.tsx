@@ -53,9 +53,20 @@ value="0"
 
 
 
+{
+expenses.length === 0 ?
+
+<p>
+No expenses available
+</p>
+
+:
+
 <ExpenseList
 expenses={expenses}
 />
+
+}
 
 
 
