@@ -21,6 +21,18 @@ export default function RocketList() {
     []
   );
 
+  const filteredRockets = useMemo(() => {
+    const keyword = search.trim().toLowerCase();
+
+    if (!keyword) {
+      return rocketItems;
+    }
+
+    return rocketItems.filter((rocket) =>
+      rocket.name.toLowerCase().includes(keyword)
+    );
+  }, [rocketItems, search]);
+
   return (
     <section className="rocket-list-page">
 
@@ -58,7 +70,7 @@ export default function RocketList() {
           />
         </div>
 
-        <RocketGrid rockets={rocketItems} />
+        <RocketGrid rockets={filteredRockets} />
 
       </div>
 
