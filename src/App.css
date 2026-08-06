@@ -50,3 +50,28 @@ p{
 .primary-btn:hover{
   opacity:.92;
 }
+
+.navbar{
+  background:#ffffff;
+  border-bottom:1px solid #e5e7eb;
+  padding:18px 0;
+}
+
+.navbar-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-weight:700;
+  color:#2563eb;
+}
+
+.footer{
+  border-top:1px solid #e5e7eb;
+  padding:24px;
+  text-align:center;
+  margin-top:80px;
+  color:#6b7280;
+}
