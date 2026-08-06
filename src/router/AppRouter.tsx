@@ -7,9 +7,11 @@ Route
 
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 export default function AppRouter(){
+
 
 return (
 
@@ -17,9 +19,22 @@ return (
 
 <Routes>
 
-<Route path="/login" element={<Login/>}/>
 
-<Route path="/" element={<Dashboard/>}/>
+<Route
+path="/login"
+element={<Login/>}
+/>
+
+
+<Route
+path="/"
+element={
+<ProtectedRoute>
+<Dashboard/>
+</ProtectedRoute>
+}
+/>
+
 
 </Routes>
 
