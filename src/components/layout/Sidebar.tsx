@@ -189,7 +189,7 @@ borderRadius:12,
 textDecoration:"none",
 
 background:isActive
-?"#F97316"
+?"#FFC100"
 :"transparent",
 
 color:"#fff",
