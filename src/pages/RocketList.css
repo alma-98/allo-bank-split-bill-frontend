@@ -1,33 +1,118 @@
 .rocket-list-page{
-    width:100%;
-    min-height:100%;
+    min-height:100vh;
+    background:var(--background);
+}
+
+.rocket-hero{
+    padding:96px 24px 72px;
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
+    color:#fff;
+}
+
+.rocket-hero-content{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.rocket-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(8px);
+    font-size:14px;
+    margin-bottom:24px;
+}
+
+.rocket-title{
+    font-size:56px;
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.rocket-subtitle{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+    opacity:.9;
+    margin-bottom:36px;
+}
+
+.rocket-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.hero-primary-button,
+.hero-secondary-button{
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.hero-primary-button{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+}
+
+.hero-primary-button:hover{
+    background:var(--primary-dark);
+}
+
+.hero-secondary-button{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.hero-secondary-button:hover{
+    background:rgba(255,255,255,.12);
 }
 
 .rocket-list-container{
     max-width:1200px;
     margin:0 auto;
-    padding:32px 24px;
-}
-
-.rocket-list-header{
-    margin-bottom:32px;
-}
-
-.rocket-list-header h1{
-    font-size:42px;
-    font-weight:700;
-    color:var(--text);
-    margin-bottom:12px;
-}
-
-.rocket-list-header p{
-    max-width:720px;
-    color:var(--text-light);
-    line-height:1.7;
+    padding:40px 24px;
 }
 
 .rocket-list-content{
     display:flex;
     flex-direction:column;
     gap:24px;
+}
+
+@media (max-width:768px){
+
+.rocket-hero{
+    padding:72px 20px 56px;
+}
+
+.rocket-title{
+    font-size:38px;
+}
+
+.rocket-subtitle{
+    font-size:16px;
+}
+
+.rocket-actions{
+    flex-direction:column;
+}
+
+.hero-primary-button,
+.hero-secondary-button{
+    width:100%;
+}
+
 }
