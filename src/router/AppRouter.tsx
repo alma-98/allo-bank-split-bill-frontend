@@ -4,18 +4,70 @@ Routes,
 Route
 } from "react-router-dom";
 
+import {
+useEffect,
+useState
+} from "react";
+
 
 import Dashboard from "../pages/Dashboard";
 
 import Login from "../pages/Login";
 
 import GroupDetail from "../pages/GroupDetail";
+
 import Settlement from "../pages/Settlement";
 
 import ProtectedRoute from "./ProtectedRoute";
 
 
+import {
+autoLogin
+} from "../auth/AutoLogin";
+
+
+
 export default function AppRouter(){
+
+
+const [ready,setReady] =
+useState(false);
+
+
+
+useEffect(()=>{
+
+autoLogin()
+.then(()=>{
+
+setReady(true);
+
+})
+.catch(()=>{
+
+setReady(true);
+
+});
+
+
+},[]);
+
+
+
+if(!ready){
+
+return (
+
+<div>
+
+Loading...
+
+</div>
+
+);
+
+}
+
 
 
 return (
@@ -31,6 +83,7 @@ element={<Login/>}
 />
 
 
+
 <Route
 path="/"
 element={
@@ -39,6 +92,7 @@ element={
 </ProtectedRoute>
 }
 />
+
 
 
 <Route
@@ -62,8 +116,8 @@ element={
 />
 
 
-</Routes>
 
+</Routes>
 
 </BrowserRouter>
 

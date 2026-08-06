@@ -1,36 +1,53 @@
 
 
+import MetricCard
+from "../../components/dashboard/MetricCard";
+
+
 export default function AdminDashboard(){
+
 
 return (
 
-<div>
+<div style={{
+padding:"32px"
+}}>
+
 
 <h1>
 Admin Enterprise Dashboard
 </h1>
 
 
-<div>
 
-Users:
-0
+<div style={{
 
-</div>
+display:"grid",
+gridTemplateColumns:
+"repeat(3,1fr)",
+gap:"20px"
 
-
-<div>
-
-AI Models:
-1
-
-</div>
+}}>
 
 
-<div>
+<MetricCard
+title="Users"
+value="2"
+/>
 
-System:
-Healthy
+
+<MetricCard
+title="Transactions"
+value="0"
+/>
+
+
+<MetricCard
+title="System"
+value="Healthy"
+/>
+
+
 
 </div>
 
