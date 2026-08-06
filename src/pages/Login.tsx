@@ -68,6 +68,42 @@ Login
 </button>
 
 
+
+
+<div style={{
+marginTop:"20px",
+padding:"12px",
+background:"#f1f5f9",
+borderRadius:"8px"
+}}>
+
+<h4>
+Test Admin Account
+</h4>
+
+<p>
+Email:
+<strong>
+admin@system.com
+</strong>
+</p>
+
+<p>
+Password:
+<strong>
+Admin@12345
+</strong>
+</p>
+
+<p>
+Role:
+<strong>
+ADMIN
+</strong>
+</p>
+
+</div>
+
 </div>
 
 );
