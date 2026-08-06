@@ -1,30 +1,24 @@
-import AppRouter from "./routes/AppRouter";
+import "./App.css";
 
-import {
-AuthProvider
-} from "./auth/AuthContext";
+export default function App() {
+  return (
+    <div className="app">
+      <main className="hero">
+        <div className="container">
+          <span className="badge">🚀 Allo Bank Frontend Technical Assignment</span>
 
-import ErrorBoundary
-from "./components/common/ErrorBoundary";
+          <h1>SpaceX Rocket Explorer</h1>
 
+          <p>
+            Explore SpaceX rockets, search launches, and view detailed rocket
+            information.
+          </p>
 
-function App(){
-
-return (
-
-<ErrorBoundary>
-
-<AuthProvider>
-
-<AppRouter/>
-
-</AuthProvider>
-
-</ErrorBoundary>
-
-);
-
+          <button className="primary-btn">
+            Get Started
+          </button>
+        </div>
+      </main>
+    </div>
+  );
 }
-
-
-export default App;
