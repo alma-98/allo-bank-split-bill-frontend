@@ -1,13 +1,62 @@
-import { useState } from "react";
-import { SearchBar } from "../components/common";
+import { useMemo, useState } from "react";
+
+import useRockets from "../hooks/useRockets";
+
+import {
+  SearchBar,
+  Loading,
+  ErrorState,
+} from "../components/common";
+
+import {
+  RocketGrid,
+} from "../components/rocket";
+
 import "./RocketList.css";
 
 export default function RocketList() {
+
   const [search, setSearch] = useState("");
+
+  const {
+    rockets,
+    loading,
+    error,
+    refetch,
+  } = useRockets();
+
+  const filteredRockets = useMemo(() => {
+    const keyword = search.trim().toLowerCase();
+
+    if (!keyword) {
+      return rockets;
+    }
+
+    return rockets.filter((rocket) =>
+      rocket.name.toLowerCase().includes(keyword)
+    );
+  }, [rockets, search]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return (
+      <ErrorState
+        message={error}
+        onRetry={() => {
+          void refetch();
+        }}
+      />
+    );
+  }
 
   return (
     <section className="rocket-list-page">
+
       <div className="rocket-hero">
+
         <div className="rocket-hero-content">
 
           <span className="rocket-badge">
@@ -23,6 +72,7 @@ export default function RocketList() {
           </p>
 
         </div>
+
       </div>
 
       <div className="rocket-list-container">
@@ -30,23 +80,15 @@ export default function RocketList() {
         <SearchBar
           value={search}
           onChange={setSearch}
-          placeholder="Search rocket..."
+          placeholder="Search rockets..."
         />
 
-        <div className="rocket-search-info">
-          Search :
-          <strong>
-            {search || " All Rockets"}
-          </strong>
-        </div>
-
-        {/* Loading */}
-
-        {/* Error */}
-
-        {/* RocketGrid */}
+        <RocketGrid
+          rockets={filteredRockets}
+        />
 
       </div>
+
     </section>
   );
 }
