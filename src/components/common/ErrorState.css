@@ -1,0 +1,18 @@
+.error-state{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:64px 24px;
+  text-align:center;
+  gap:16px;
+}
+
+.error-state h3{
+  color:var(--danger);
+}
+
+.error-state p{
+  color:var(--text-light);
+  max-width:500px;
+}
