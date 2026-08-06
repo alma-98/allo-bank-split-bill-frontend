@@ -1,3 +1,4 @@
+import Layout from "../components/layout/Layout";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRocket } from "../services/RocketService";
@@ -39,8 +40,8 @@ export default function RocketDetail() {
     }
 
     return(
-
-<div className="max-w-6xl mx-auto p-8">
+<Layout>
+<div className="max-w-6xl mx-auto p-6 md:p-8">
 
 <button
 className="mb-6 px-4 py-2 bg-gray-200 rounded"

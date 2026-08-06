@@ -1,5 +1,6 @@
 import {useEffect,useState} from "react";
 
+import Layout from "../components/layout/Layout";
 import RocketCard from "../components/rocket/RocketCard";
 import SearchBar from "../components/common/SearchBar";
 import Loading from "../components/common/Loading";
@@ -58,8 +59,8 @@ rocket.name.toLowerCase().includes(search.toLowerCase())
 );
 
 return(
-
-<div className="max-w-7xl mx-auto p-8">
+<Layout>
+<div className="max-w-7xl mx-auto p-6 md:p-8">
 
 <h1 className="text-4xl font-bold mb-6">
 
