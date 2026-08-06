@@ -1,127 +1,247 @@
-
+import { NavLink } from "react-router-dom";
 
 import {
-NavLink
-} from "react-router-dom";
+LayoutDashboard,
+Users,
+Receipt,
+Wallet,
+BarChart3,
+Shield,
+Settings,
+} from "lucide-react";
 
+const menus = [
 
-const menus=[
+{
+title:"Overview",
+items:[
+{
+label:"Dashboard",
+icon:LayoutDashboard,
+to:"/dashboard"
+}
+]
+},
 
-["Dashboard","/dashboard"],
-["Groups","/groups"],
-["Expenses","/expenses"],
-["Settlement","/settlement"],
-["Analytics","/analytics"],
-["Users","/users"],
-["Admin","/admin"],
-["Settings","/settings"]
+{
+title:"Operations",
+items:[
+{
+label:"Groups",
+icon:Users,
+to:"/groups"
+},
+{
+label:"Expenses",
+icon:Receipt,
+to:"/expenses"
+},
+{
+label:"Settlement",
+icon:Wallet,
+to:"/settlement"
+}
+]
+},
+
+{
+title:"Insights",
+items:[
+{
+label:"Analytics",
+icon:BarChart3,
+to:"/analytics"
+}
+]
+},
+
+{
+title:"Administration",
+items:[
+{
+label:"Users",
+icon:Users,
+to:"/users"
+},
+{
+label:"Admin",
+icon:Shield,
+to:"/admin"
+},
+{
+label:"Settings",
+icon:Settings,
+to:"/settings"
+}
+]
+}
 
 ];
 
-
 export default function Sidebar(){
 
-
-return (
+return(
 
 <aside
-
 style={{
 
-width:"260px",
+width:280,
 
 minHeight:"100vh",
 
-background:"#000",
+background:"#0F172A",
 
-color:"#ffc100",
+color:"#fff",
 
-padding:"30px",
+padding:24,
+
+display:"flex",
+
+flexDirection:"column",
+
+borderRight:"1px solid #1E293B",
 
 flexShrink:0
 
 }}
-
 >
 
+<div
+style={{
+marginBottom:30
+}}
+>
 
 <h2
-
 style={{
-
-fontWeight:800
-
+margin:0,
+fontSize:24,
+fontWeight:800,
+color:"#fff"
 }}
-
 >
-
-Allo
-
+Split Bill
 </h2>
 
-
-<p>
-
-Split Bill
-
+<p
+style={{
+marginTop:6,
+fontSize:13,
+color:"#94A3B8"
+}}
+>
+Enterprise Dashboard
 </p>
 
-
-
-<hr/>
-
-
+</div>
 
 {
-menus.map(
-menu=>(
 
+menus.map(section=>(
+
+<div
+key={section.title}
+style={{
+marginBottom:28
+}}
+>
+
+<div
+style={{
+fontSize:12,
+fontWeight:700,
+color:"#64748B",
+marginBottom:10,
+textTransform:"uppercase"
+}}
+>
+{section.title}
+</div>
+
+{
+
+section.items.map(item=>{
+
+const Icon=item.icon;
+
+return(
 
 <NavLink
 
-key={menu[1]}
+key={item.to}
 
-to={menu[1]}
+to={item.to}
 
 style={({isActive})=>({
 
-display:"block",
+display:"flex",
 
-padding:"12px 15px",
+alignItems:"center",
 
-margin:"8px 0",
+gap:12,
 
-borderRadius:"12px",
+padding:"12px 14px",
 
-color:"#fff",
+marginBottom:8,
+
+borderRadius:12,
 
 textDecoration:"none",
 
 background:isActive
-?"#ffc100"
-:"#111",
+?"#E11D48"
+:"transparent",
+
+color:"#fff",
+
+fontWeight:isActive
+?700
+:500,
+
+transition:"all .2s"
 
 })}
 
 >
 
-{menu[0]}
+<Icon size={18}/>
 
+<span>
+
+{item.label}
+
+</span>
 
 </NavLink>
 
+);
 
-)
-
-)
+})
 
 }
 
+</div>
 
+))
+
+}
+
+<div
+style={{
+marginTop:"auto",
+paddingTop:20,
+borderTop:"1px solid #334155",
+fontSize:12,
+color:"#94A3B8"
+}}
+>
+
+Split Bill v1.0
+
+</div>
 
 </aside>
 
-)
+);
 
 }
-
