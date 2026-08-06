@@ -52,3 +52,8 @@ data
 return response.data;
 
 }
+
+export async function getGroups() {
+  const response = await client.get<Group[]>("/groups");
+  return response.data;
+}
