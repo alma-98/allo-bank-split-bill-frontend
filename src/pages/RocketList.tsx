@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { rockets } from "../data";
 import { RocketGrid } from "../components/rocket";
@@ -7,6 +8,7 @@ import { SearchBar } from "../components/common";
 import "./RocketList.css";
 
 export default function RocketList() {
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
 
@@ -59,7 +61,7 @@ export default function RocketList() {
       <div className="rocket-list-container">
 
         <div className="rocket-summary">
-          <strong>Total Rockets:</strong> {rocketItems.length}
+          <strong>Total Rockets:</strong> {filteredRockets.length}
         </div>
 
         <div style={{ marginBottom: "24px" }}>
@@ -70,7 +72,10 @@ export default function RocketList() {
           />
         </div>
 
-        <RocketGrid rockets={filteredRockets} />
+        <RocketGrid
+          rockets={filteredRockets}
+          onSelect={(rocket) => navigate(`/rockets/${rocket.id}`)}
+        />
 
       </div>
 
