@@ -1,0 +1,26 @@
+.footer{
+    border-top:1px solid #e5e7eb;
+    background:#ffffff;
+    margin-top:auto;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:28px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#64748b;
+    font-size:14px;
+}
+
+@media (max-width:768px){
+
+.footer-container{
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+}
+
+}
