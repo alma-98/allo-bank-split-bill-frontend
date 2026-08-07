@@ -1,150 +1,38 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import { isAuthenticated } from "../auth/AuthService";
+import Layout from "../components/layout/Layout";
 
-import Landing from "../pages/public/Landing";
-import Login from "../pages/Login";
-
-import Dashboard from "../pages/Dashboard";
-import Groups from "../pages/Groups";
-import GroupDetail from "../pages/GroupDetail";
-import Expenses from "../pages/Expenses";
-import Settlement from "../pages/Settlement";
-import Analytics from "../pages/Analytics";
-import Users from "../pages/Users";
-import Admin from "../pages/Admin";
-import Settings from "../pages/Settings";
-
-import ProtectedRoute from "./ProtectedRoute";
-import AppLayout from "../components/layout/AppLayout";
-import NotFound from "../pages/common/NotFound";
-
-function PrivateLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <ProtectedRoute>
-      <AppLayout>{children}</AppLayout>
-    </ProtectedRoute>
-  );
-}
-
-function LoginPage() {
-  if (isAuthenticated()) {
-    return <Navigate to="/dashboard" replace />;
-  }
-
-  return <Login />;
-}
+import Home from "../pages/Home";
+import RocketList from "../pages/RocketList";
+import RocketDetail from "../pages/RocketDetail";
+import NotFound from "../pages/NotFound";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
-
-      <Routes>
-
-        <Route path="/" element={<Landing />} />
+    <Routes>
+      <Route element={<Layout />}>
 
         <Route
-          path="/login"
-          element={<LoginPage />}
+          path="/"
+          element={<Home />}
         />
 
         <Route
-          path="/dashboard"
-          element={
-            <PrivateLayout>
-              <Dashboard />
-            </PrivateLayout>
-          }
+          path="/rockets"
+          element={<RocketList />}
         />
 
         <Route
-          path="/groups"
-          element={
-            <PrivateLayout>
-              <Groups />
-            </PrivateLayout>
-          }
+          path="/rockets/:id"
+          element={<RocketDetail />}
         />
 
-        <Route
-          path="/groups/:id"
-          element={
-            <PrivateLayout>
-              <GroupDetail />
-            </PrivateLayout>
-          }
-        />
+      </Route>
 
-        <Route
-          path="/expenses"
-          element={
-            <PrivateLayout>
-              <Expenses />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="/settlement"
-          element={
-            <PrivateLayout>
-              <Settlement />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="/analytics"
-          element={
-            <PrivateLayout>
-              <Analytics />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="/users"
-          element={
-            <PrivateLayout>
-              <Users />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="/admin"
-          element={
-            <PrivateLayout>
-              <Admin />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="/settings"
-          element={
-            <PrivateLayout>
-              <Settings />
-            </PrivateLayout>
-          }
-        />
-
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-
-      </Routes>
-
-    </BrowserRouter>
+      <Route
+        path="*"
+        element={<NotFound />}
+      />
+    </Routes>
   );
 }

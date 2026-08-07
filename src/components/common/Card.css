@@ -1,0 +1,46 @@
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-sm);
+    overflow:hidden;
+    transition:var(--transition);
+}
+
+.card-hover:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-lg);
+}
+
+.card-header{
+    padding:20px 20px 0;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card-footer{
+    padding:16px 20px;
+    border-top:1px solid var(--border);
+    background:#fafafa;
+}
+
+.card-image{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
+
+.card-title{
+    font-size:1.125rem;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+.card-description{
+    color:var(--text-light);
+    line-height:1.6;
+    font-size:.95rem;
+}

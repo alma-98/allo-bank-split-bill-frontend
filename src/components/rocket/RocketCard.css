@@ -1,0 +1,41 @@
+.rocket-card{
+    cursor:pointer;
+    height:100%;
+}
+
+.rocket-card-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.rocket-card-placeholder{
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:64px;
+    background:#e2e8f0;
+}
+
+.rocket-card-content{
+    padding:20px;
+}
+
+.rocket-card-title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:12px;
+    color:var(--text);
+}
+
+.rocket-card-description{
+    color:var(--text-light);
+    font-size:14px;
+    line-height:1.6;
+
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}

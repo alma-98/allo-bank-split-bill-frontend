@@ -1,0 +1,150 @@
+.rocket-list-page{
+    min-height:100vh;
+    background:var(--background);
+}
+
+.rocket-hero{
+    padding:96px 24px 72px;
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
+    color:#fff;
+}
+
+.rocket-hero-content{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.rocket-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(8px);
+    font-size:14px;
+    margin-bottom:24px;
+}
+
+.rocket-title{
+    font-size:56px;
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.rocket-subtitle{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+    opacity:.9;
+    margin-bottom:36px;
+}
+
+.rocket-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.hero-primary-button,
+.hero-secondary-button{
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.hero-primary-button{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+}
+
+.hero-primary-button:hover{
+    background:var(--primary-dark);
+}
+
+.hero-secondary-button{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.hero-secondary-button:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.rocket-list-container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:40px 24px;
+}
+
+.rocket-list-content{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+@media (max-width:768px){
+
+.rocket-hero{
+    padding:72px 20px 56px;
+}
+
+.rocket-title{
+    font-size:38px;
+}
+
+.rocket-subtitle{
+    font-size:16px;
+}
+
+.rocket-actions{
+    flex-direction:column;
+}
+
+.hero-primary-button,
+.hero-secondary-button{
+    width:100%;
+}
+
+}
+
+.rocket-summary{
+    margin:24px 0;
+    font-size:18px;
+    font-weight:600;
+}
+
+.rocket-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:24px;
+}
+
+.rocket-item{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:20px;
+}
+
+.rocket-item h2{
+    margin-bottom:12px;
+}
+
+.rocket-item p{
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.rocket-item small{
+    color:#64748b;
+}
